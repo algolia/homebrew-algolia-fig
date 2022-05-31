@@ -6,20 +6,20 @@ require_relative "lib/private"
 class Fig < Formula
   desc "FIG - Fake Insights Generator"
   homepage "https://www.algolia.com"
-  version "1.0.0"
+  version "1.1.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.0.0/fig_1.0.0_macOS_amd64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "6dd77359aadf8ac5f0a79c51bdb532bef748b5ee8613813ec840c610881a86ae"
+    if Hardware::CPU.arm?
+      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.1.0/fig_1.1.0_macOS_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "da787afb71cf265ab745eedc62d0e16a0849ce45b1601d3b7c952ba4881d4099"
 
       def install
         bin.install "fig"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.0.0/fig_1.0.0_macOS_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "9661e7d43460913b2bed8d3f89354c4e7265357a092ffff6ecc721cb83b70619"
+    if Hardware::CPU.intel?
+      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.1.0/fig_1.1.0_macOS_amd64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "de1ff53d6030300709b8d7bea11d65aa11da3dd05f4ef911e3bb3a8711a95737"
 
       def install
         bin.install "fig"
@@ -29,24 +29,24 @@ class Fig < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.0.0/fig_1.0.0_linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "1aa615057348095cae79c37d9a5edf796018f3a58397eccf6505fb9abad7032c"
-
-      def install
-        bin.install "fig"
-      end
-    end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.0.0/fig_1.0.0_linux_armv6.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "0805db69891b9eed2483e9d0bb8358d51c3367cdcf9736eddffe877042d6424d"
+      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.1.0/fig_1.1.0_linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "00b01c880cf28ecf81132a4e94125a248b3ac60dcfee5d018e6eabdd172509c1"
 
       def install
         bin.install "fig"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.0.0/fig_1.0.0_linux_amd64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "c92089162f815460b0de35295baaa0ab0b89d46e6363c13f55cea0120f5afe90"
+      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.1.0/fig_1.1.0_linux_amd64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "6f5d3affb156d84cff4e47a2ae9e325c86af0cfd2125125addcff096c8c4b926"
+
+      def install
+        bin.install "fig"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/algolia/fake-insights-generator/releases/download/v1.1.0/fig_1.1.0_linux_armv6.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "a19f65dabc1f6d7b65eabcc59b6d88ed0a7821ebdd885992d769f830ba54a7cb"
 
       def install
         bin.install "fig"
